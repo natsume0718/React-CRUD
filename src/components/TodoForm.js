@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
 
-function TodoForm() {
+function TodoForm(props) {
   const [input, setInput] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
   return (
-    <form className="todo-form">
+    <form className="todo-form" onSubmit={handleSubmit}>
       <input
         type="text"
         value={input}
         placeholder="todo..."
         name="text"
-        onClick={setInput}
+        onChange={handleInput}
       />
+      <button className="todo-button">追加</button>
     </form>
   );
 }
