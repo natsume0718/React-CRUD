@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
+import { Card } from "antd";
 
 export const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -36,12 +37,14 @@ export const TodoList = () => {
     <div>
       <h1>ToDoリスト</h1>
       <TodoForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
+      <Card style={{ "margin-top": "1rem" }}>
+        <Todo
+          todos={todos}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
+          updateTodo={updateTodo}
+        />
+      </Card>
     </div>
   );
 };

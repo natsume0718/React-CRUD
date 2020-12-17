@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Input, Button } from "antd";
 
 function TodoForm(props) {
   const [input, setInput] = useState("");
@@ -23,15 +24,18 @@ function TodoForm(props) {
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
-      <input
+      <Input
         type="text"
         value={input}
         placeholder="todo..."
         name="text"
         onChange={handleInput}
         ref={inputRef}
+        style={{ width: "80%" }}
       />
-      <button className="todo-button">追加</button>
+      <Button onClick={handleSubmit} style={{ width: "20%" }}>
+        追加
+      </Button>
     </form>
   );
 }
