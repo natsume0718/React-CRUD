@@ -41,7 +41,7 @@ export const TodoList = () => {
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
-      ></Todo>
+      />
     </div>
   );
 };
