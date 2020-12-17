@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Input, Button } from "antd";
 
-function TodoForm(props) {
-  const [input, setInput] = useState("");
+function TodoForm({ edit, onSubmit }) {
+  const [input, setInput] = useState(edit ? edit.value : "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit({
+    onSubmit({
       id: Math.random() * 12345,
       text: input,
     });
@@ -27,7 +27,7 @@ function TodoForm(props) {
       <Input
         type="text"
         value={input}
-        placeholder="todo..."
+        placeholder={edit ? "edit todo ..." : "add todo ..."}
         name="text"
         onChange={handleInput}
         ref={inputRef}
