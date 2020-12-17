@@ -9,23 +9,27 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     setEdit({ id: null, value: "" });
   };
 
-  if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
-  }
-  return todos.map((todo, index) => (
-    <div key={index} className={"todo-row" + todo.isComplete ? "complete" : ""}>
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+  return todos.map((todo, index) => {
+    return todo.id === edit.id ? (
+      <TodoForm edit={edit} onSubmit={submitUpdate} />
+    ) : (
+      <div
+        key={index}
+        className={"todo-row" + todo.isComplete ? "complete" : ""}
+      >
+        <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+          {todo.text}
+        </div>
+        <div className="icons">
+          <AiFillCloseCircle onClick={() => removeTodo(todo.id)} />
+          <AiFillEdit
+            onClick={() => setEdit({ id: todo.id, value: todo.text })}
+            className="edit-icon"
+          />
+        </div>
       </div>
-      <div className="icons">
-        <AiFillCloseCircle onClick={() => removeTodo(todo.id)} />
-        <AiFillEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className="edit-icon"
-        />
-      </div>
-    </div>
-  ));
+    );
+  });
 }
 
 export default Todo;
