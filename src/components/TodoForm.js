@@ -34,7 +34,7 @@ function TodoForm({ edit, onSubmit }) {
         style={{ width: "80%" }}
       />
       <Button onClick={handleSubmit} style={{ width: "20%" }}>
-        追加
+        {edit ? "更新" : "追加"}
       </Button>
     </form>
   );
