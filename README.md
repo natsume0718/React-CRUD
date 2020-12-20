@@ -1,6 +1,8 @@
 # What
 
-React Todo App
+[React Todo App](https://ntm-react-todo.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3f4a51a2-82b6-42e3-9ea2-f79efc4b9284/deploy-status)](https://app.netlify.com/sites/ntm-react-todo/deploys)
 
 # About
 
